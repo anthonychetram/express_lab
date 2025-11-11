@@ -9,7 +9,7 @@ app.use('/users', userRouter);
 
 app.get('/', (req, res) => {
     console.log('Anthony is cool!');
-    res.render("index.html", {user: "Anthony!"});
+    res.render("index", {user: "Anthony!"});
 });
 
 
