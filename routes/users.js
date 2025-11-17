@@ -25,7 +25,7 @@ router.param("id", (req, res, next, id) => {
     next();
 });
 
-const users = [{name: "Anthony", role: "admin"}, {name: "Daniel", role: "user"}, {name: "Vuaghn", role: "user"}];
+const users = [{name: "Anthony", role: "admin"}, {name: "Daniel", role: "user"}, {name: "Vaughn", role: "user"}];
 
 router.param("id", (req, res, next, id) => {
     console.log(`Accessing user # ${id}`);
