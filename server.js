@@ -20,9 +20,7 @@ app.get('/', (req, res) => {
 app.get(`/new`, (req, res) => {
     res.send("users/new", {firstName: "Please Enter Your Name"});
 });
-app.listen = (3030, ()=>{
-    console.log("Server is running on port 3030");
-});
+app.listen(3030);
 
 // function logger (req, res, next) {
 //     console.log (`Page Accessed: ${req.originalUrl}`);
