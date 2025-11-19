@@ -4,16 +4,27 @@ const router = express.Router();
 router.get('/', (req, res) => {
     res.render(`users/list`, { users: users });
 });
-router.get('/new', (req, res) => {
-    res.send("New User Form");
+router.get(`/new`, (req, res) => {
+    res.render("users/new", {firstName: ""});
 });
+
 router.post('/', (req, res) => {
     // res.send("User Created");
     const firstName = req.body.firstName;
-    const isVallid = firstName != "";
+    const lastName = req.body.lastName;
+    const age = req.body.age;
+    const gender = req.body.gender;
+
+
+    const isVallid = firstName != "" && lastName != ""
     if (isVallid) {
-        console.log(`Adding User: ${name}`);
-        users.push({ name: firstName });
+        console.log(`Adding User: ${firstName}`);
+        users.push({ 
+            firstName: firstName, 
+            lastName: lastName,
+            age: age,
+            gender: gender,
+        });
         console.log(`New Set of Users: ${users}`);
         res.send("User Created!");
     } else {
@@ -38,7 +49,7 @@ router.param("id", (req, res, next, id) => {
     next();
 });
 
-const users = [{ name: "Anthony", role: "admin" }, { name: "Daniel", role: "user" }, { name: "Vaughn", role: "user" }];
+const users = [];
 
 router.param("id", (req, res, next, id) => {
     console.log(`Accessing user # ${id}`);
